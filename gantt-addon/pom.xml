@@ -6,7 +6,7 @@
 	<groupId>org.tltv.gantt</groupId>
 	<artifactId>gantt-addon</artifactId>
 	<packaging>bundle</packaging>
-	<version>1.0.5</version>
+	<version>1.0.6</version>
 	<name>Gantt</name>
 
 	<properties>
