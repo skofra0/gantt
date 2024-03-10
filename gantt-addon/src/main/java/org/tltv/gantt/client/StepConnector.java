@@ -137,7 +137,7 @@ public class StepConnector extends AbstractHasComponentsConnector {
         // SubStepConnector handles adding new sub-step.
         // Here we handle removing and other necessary changed related
         // hierarchy.
-        Set<SubStepWidget> removed = new HashSet<SubStepWidget>();
+        Set<SubStepWidget> removed = new HashSet<>();
         // remove old sub-steps
         for (ComponentConnector c : connectorHierarchyChangeEvent.getOldChildren()) {
             if (!getChildComponents().contains(c)) {

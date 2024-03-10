@@ -571,7 +571,7 @@ public class GanttConnector extends AbstractHasComponentsConnector {
     }
 
     protected List<StepWidget> getSteps() {
-        List<StepWidget> steps = new ArrayList<StepWidget>();
+        List<StepWidget> steps = new ArrayList<>();
         for (Connector sc : getState().steps) {
             steps.add(((StepConnector) sc).getWidget());
         }
@@ -590,7 +590,7 @@ public class GanttConnector extends AbstractHasComponentsConnector {
     }
 
     protected Map<Step, StepWidget> getStepsMap() {
-        Map<Step, StepWidget> steps = new HashMap<Step, StepWidget>();
+        Map<Step, StepWidget> steps = new HashMap<>();
         StepWidget stepWidget;
         for (Connector sc : getState().steps) {
             stepWidget = ((StepConnector) sc).getWidget();

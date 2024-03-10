@@ -7,7 +7,9 @@ import com.vaadin.shared.ui.colorpicker.Color;
 
 public class CssColorToColorPickerConverter implements Converter<String, Color> {
 
-    public Color convertToModel(String value) {
+	private static final long serialVersionUID = 1L;
+
+	public Color convertToModel(String value) {
         return convertToModel(value, null).getOrThrow((v) -> new RuntimeException("Invalid color value '" + v + "'!"));
     }
 

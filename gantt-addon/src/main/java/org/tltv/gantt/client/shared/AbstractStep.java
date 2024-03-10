@@ -36,14 +36,14 @@ public abstract class AbstractStep implements Serializable {
     private long startDate = -1;
     private long endDate = -1;
 
-    public AbstractStep() {
+    protected AbstractStep() {
     }
 
-    public AbstractStep(String caption) {
+    protected AbstractStep(String caption) {
         setCaption(caption);
     }
 
-    public AbstractStep(String caption, CaptionMode captionMode) {
+    protected AbstractStep(String caption, CaptionMode captionMode) {
         setCaption(caption);
         setCaptionMode(captionMode);
     }

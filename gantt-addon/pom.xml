@@ -6,15 +6,16 @@
 	<groupId>org.tltv.gantt</groupId>
 	<artifactId>gantt-addon</artifactId>
 	<packaging>bundle</packaging>
-	<version>1.0.4</version>
+	<version>1.0.5</version>
 	<name>Gantt</name>
 
 	<properties>
+		<java.version>11</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<vaadin.version>8.5.2</vaadin.version>
-		<vaadin.plugin.version>8.5.2</vaadin.plugin.version>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<vaadin.version>8.14.3</vaadin.version>
+		<vaadin.plugin.version>8.14.3</vaadin.plugin.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<!-- ZIP Manifest fields -->
 		<Implementation-Version>${project.version}</Implementation-Version>
 		<!-- Must not change this because of the Directory -->
@@ -35,11 +36,42 @@
 
 	<repositories>
 		<repository>
+			<id>DeemMaven</id>
+			<url>http://maven.deem.no:8081/repository/maven-public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
 			<id>vaadin-addons</id>
 			<url>https://maven.vaadin.com/vaadin-addons</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</repository>
 	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>DeemMaven</id>
+			<url>http://maven.deem.no:8081/repository/maven-public</url>
+		</pluginRepository>
+	</pluginRepositories>
 	
+	<distributionManagement>
+		<repository>
+			<id>DeemMaven</id>
+			<url>http://maven.deem.no:8081/repository/maven-releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>DeemMaven</id>
+			<url>http://maven.deem.no:8081/repository/maven-snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -86,6 +118,7 @@
 			   <groupId>org.apache.felix</groupId>
 			   <artifactId>maven-bundle-plugin</artifactId>
 			   <extensions>true</extensions>
+			   <version>5.1.9</version>
 			   <configuration>
 			       <instructions>
 			           <Export-Package>org.tltv.gantt.client,org.tltv.gantt.client.shared,org.tltv.gantt</Export-Package>
@@ -106,17 +139,16 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.6.1</version>
+				<version>3.12.1</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<release>${java.version}</release>
 				</configuration>
 			</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.0.2</version>
+				<version>3.3.0</version>
 				<configuration>
 					<archive>
 						<index>true</index>
@@ -138,28 +170,8 @@
 			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.0.0</version>
-				<executions>
-					<execution>
-                        <id>attach-javadocs</id>
-                            <goals>
-                                <goal>jar</goal>
-                            </goals>
-                            <configuration>
-                            	<source>8</source>
-                                <additionalOptions>
-                                	<additionalOption>-Xdoclint:none</additionalOption>
-                                </additionalOptions>
-                            </configuration>
-                    </execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>3.0.1</version>
+				<version>3.3.0</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -173,7 +185,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>3.6.0</version>
 				<configuration>
 					<appendAssemblyId>false</appendAssemblyId>
 					<descriptors>
@@ -194,7 +206,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.19.1</version>
+				<version>3.2.5</version>
 			</plugin>
 		</plugins>
 

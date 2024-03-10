@@ -84,7 +84,7 @@ public class GanttState extends AbstractComponentState {
     @DelegateToWidget
     public Long timestamp;
 
-    public List<Connector> steps = new LinkedList<Connector>();
+    public List<Connector> steps = new LinkedList<>();
 
     public Connector verticalScrollDelegateTarget;
 

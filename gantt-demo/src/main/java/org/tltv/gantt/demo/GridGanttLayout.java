@@ -13,6 +13,8 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.UI;
 
 public class GridGanttLayout extends HorizontalLayout implements GanttListener {
+	
+	private static final long serialVersionUID = 1L;
 
     Gantt gantt;
     Grid<Step> ganttGrid;

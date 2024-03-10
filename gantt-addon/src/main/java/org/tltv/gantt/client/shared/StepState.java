@@ -10,6 +10,6 @@ public class StepState extends AbstractComponentState {
 
     public Step step;
 
-    public List<Connector> subSteps = new LinkedList<Connector>();
+    public List<Connector> subSteps = new LinkedList<>();
 
 }
